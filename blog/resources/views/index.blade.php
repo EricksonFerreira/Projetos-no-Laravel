@@ -40,6 +40,7 @@
         </tr>
         @endforeach
     </tbody>
+    <a href="{{ route('shares.create')}}" class="btn btn-primary">Criar</a>
   </table>
 <div>
 @endsection

@@ -1,7 +1,3 @@
 <?php
-
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('/', 'ShareController@index')->name('home');
 Route::resource('shares', 'ShareController');
