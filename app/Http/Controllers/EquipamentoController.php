@@ -39,9 +39,10 @@ class EquipamentoController extends Controller
     public function store(Request $request)
     {
         $dados = $request->all();
+        dd($dados);
         Equipamento::create($dados);
-        return redirect()->route('equipamento.index');
-        //
+        return redirect()->route('equipamento.create');
+
     }
 
     /**

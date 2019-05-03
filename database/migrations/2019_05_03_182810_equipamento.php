@@ -19,6 +19,7 @@ class Equipamento extends Migration
             $table->string('tombamento')->unique();
             $table->Integer('tipo_equipamento_id')->unsigned();
             $table->foreign('tipo_equipamento_id')->references('id')->on('tipo_equipamento')->onDelete('cascade');
+            $table->timestamp('name');
         });
     }
 
