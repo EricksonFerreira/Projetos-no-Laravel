@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('tipo-equipamentos', 'TipoEquipamentoController');
+
+Route::get('/tipo-equipamentos/create', ['as' => 'tipo-equipamentos.create', 'uses' => 'TipoEquipamentoController@create']);
+
+Route::post('/tipo-equipamentos/store', ['as' => 'tipo-equipamentos.store', 'uses' => 'TipoEquipamentoController@store']);	
