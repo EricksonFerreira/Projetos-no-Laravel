@@ -14,7 +14,11 @@ class Reserva extends Migration
     public function up()
     {
         Schema::create('reserva', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->Integer('id_equipamento')->unsigned();
+            $table->foreign('id_equipamento')->references('id')->on('equipamentos')->onDelete('cascade');
+            $table->Integer('id_usuario')->unsigned();;
+            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class Reserva extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('reserva');
     }
 }
