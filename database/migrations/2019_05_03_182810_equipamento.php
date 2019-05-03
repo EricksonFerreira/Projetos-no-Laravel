@@ -14,11 +14,10 @@ class Equipamento extends Migration
     public function up()
     {
         Schema::create('equipamentos', function (Blueprint $table) {
-            $table->Integer('id');
+            $table->increments('id');
             $table->string('name');
-            $table->Integer('equip_tipo')->unsigned();
-            $table->foreign('equip_tipo')->references('id')->on('tipo_equipamento')->onDelete('cascade');
-            $table->timestamps();
+            $table->Integer('tipo_equipamento_id')->unsigned();
+            $table->foreign('tipo_equipamento_id')->references('id')->on('tipo_equipamentos')->onDelete('cascade');
         });
     }
 
@@ -29,6 +28,6 @@ class Equipamento extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('equipamentos');
     }
 }

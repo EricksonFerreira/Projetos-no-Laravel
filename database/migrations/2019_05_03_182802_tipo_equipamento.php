@@ -14,7 +14,8 @@ class TipoEquipamento extends Migration
     public function up()
     {
         Schema::create('tipo_equipamentos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('nome');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class TipoEquipamento extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tipo_equipamentos');
     }
 }
