@@ -14,8 +14,10 @@ class TipoEquipamentoController extends Controller
      */
     public function index()
     {
+
         $tipoEquip = Tipo_Equipamento::all();
         return view ('/tipoequip.index', compact('tipoEquip'));
+
     }
 
     /**
@@ -25,16 +27,16 @@ class TipoEquipamentoController extends Controller
      */
     public function create()
     {
+
         return view ('/tipoequip.adicionar'); 
 
      }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+        $tipo = Tipo_Equipamento::all();
+        return view ('equipamento', compact('tipo'));
+    }
+
+
     public function store(Request $request)
     {
        $dados = $request->all();    
@@ -88,3 +90,4 @@ class TipoEquipamentoController extends Controller
     }
 
 }
+
