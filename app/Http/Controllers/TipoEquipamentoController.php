@@ -14,7 +14,9 @@ class TipoEquipamentoController extends Controller
      */
     public function index()
     {
-        //
+        $tipoEquip = Tipo_Equipamento::all();
+    
+        return view ('/tipoequip.index', compact('equipamento'));
     }
 
     /**
