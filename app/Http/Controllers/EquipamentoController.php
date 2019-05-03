@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Equipamento;
+use App\Tipo_Equipamento;
 use Illuminate\Http\Request;
 
 class EquipamentoController extends Controller
@@ -24,7 +25,8 @@ class EquipamentoController extends Controller
      */
     public function create()
     {
-        //
+        $tipo = Tipo_Equipamento()->all();
+        return view('equipamento', compact('tipo'));
     }
 
     /**
@@ -35,6 +37,9 @@ class EquipamentoController extends Controller
      */
     public function store(Request $request)
     {
+        $dados = $request->all();
+        Equipamento::create($dados);
+        return redirect()->route('equipamento.index');
         //
     }
 

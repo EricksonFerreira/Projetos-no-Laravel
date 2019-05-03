@@ -14,9 +14,7 @@ class TipoEquipamentoController extends Controller
      */
     public function index()
     {
-        $tipoEquip = Tipo_Equipamento::all();
-    
-        return view ('/tipoequip.index', compact('equipamento'));
+ 
     }
 
     /**
@@ -26,7 +24,8 @@ class TipoEquipamentoController extends Controller
      */
     public function create()
     {
-        //
+        $tipo = Tipo_Equipamento::all();
+        return view ('equipamento', compact('tipo'));
     }
 
     /**
@@ -85,3 +84,4 @@ class TipoEquipamentoController extends Controller
         //
     }
 }
+

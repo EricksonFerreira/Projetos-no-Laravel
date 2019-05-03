@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Equipamento;
 
 class Tipo_Equipamento extends Model
 {
