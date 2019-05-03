@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Equipamento;
 use App\Tipo_Equipamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EquipamentoController extends Controller
 {
@@ -25,8 +26,8 @@ class EquipamentoController extends Controller
      */
     public function create()
     {
-        $tipo = Tipo_Equipamento()->all();
-        return view('equipamento', compact('tipo'));
+        $tipos = DB::table('tipo_equipamento')->get();
+        return view('equipamento.create', compact('tipos'));
     }
 
     /**
