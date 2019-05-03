@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipoEquipamentosTable extends Migration
+class Equipamento extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateTipoEquipamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo__equipamentos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('equipamentos', function (Blueprint $table) {
+            $table->Integer('id');
+            $table->string('name');
+            $table->Integer('equip_tipo')->unsigned();
+            $table->foreign('equip_tipo')->references('id')->on('tipo_equipamento')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateTipoEquipamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo__equipamentos');
+        //
     }
 }
