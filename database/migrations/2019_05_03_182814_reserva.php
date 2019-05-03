@@ -15,6 +15,8 @@ class Reserva extends Migration
     {
         Schema::create('reserva', function (Blueprint $table) {
             $table->increments('id');
+            $table->datetime('data_inicio');
+            $table->datetime('data_fim');
             $table->Integer('id_equipamento')->unsigned();
             $table->foreign('id_equipamento')->references('id')->on('equipamentos')->onDelete('cascade');
             $table->Integer('id_usuario')->unsigned();;
