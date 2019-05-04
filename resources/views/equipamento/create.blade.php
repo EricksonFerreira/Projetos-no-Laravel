@@ -5,6 +5,24 @@
 </div>
 <br>
 <div>
+	<div>
+		@if ($errors->any())
+		    <div class="alert alert-danger">
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		                <li>{{ $error }}</li>
+		            @endforeach
+		        </ul>
+		    </div>
+
+		    @else
+				<div class="alert alert-success">
+			        <ul>
+			            <li>Sucesso ao cadastrar Equipamento</li>
+			        </ul>
+		    	</div>		    	
+		@endif
+	</div>
 	<form action="{{route('equipamento.store')}}" method="post" class="">
 		<div class="form-group">
 			@csrf
@@ -25,6 +43,7 @@
 			<a href=""><button class="btn btn-success"> Cadastrar </button></a>
 		</div>
 	</form>
+	<a href="{{route('home')}}"><button class="btn btn-primary"> Voltar </button></a>
 </div>
 
 <style type="text/css">

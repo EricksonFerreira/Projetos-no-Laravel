@@ -38,7 +38,14 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = $request -> all();
+        $dados = $request->validate([
+
+            'data_inicio' => 'required|date|date_format:Y-m-d|after:yesterday',
+            'data_fim' => 'required|date|date_format:Y-m-d|after:data_inicio',
+            'id_equipamento'=>'required',
+        
+        ]);
+
         $id_usuario = Auth::user()->id;
 
         $reserva = DB::table('reserva')->insert([
@@ -50,7 +57,7 @@ class ReservaController extends Controller
 
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('reserva.create');
     }
 
     /**

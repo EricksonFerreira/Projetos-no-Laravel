@@ -38,7 +38,13 @@ class EquipamentoController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = $request -> all();
+        
+        $dados = $request->validate([
+
+            'nome_equipamento' => 'required|unique:equipamentos|max:255',
+            'tombamento' => 'required|unique:equipamentos',
+            'tipo_equipamento_id'=>'required'
+        ]);
 
         $table = DB::table('equipamentos')->insert([
 
