@@ -16,13 +16,16 @@ class TipoEquipamentosSeeder extends Seeder
     public function run()
     {
         DB::table('tipo_equipamento')->insert([
-        'nome' => 'microfone'
+        'nome' => 'Microfone'
         ]);      
          DB::table('tipo_equipamento')->insert([
-        'nome' => 'projetor'
+        'nome' => 'Projetor'
         ]);      
          DB::table('tipo_equipamento')->insert([
-        'nome' => 'caixa de som'
+        'nome' => 'Caixa de som'
+        ]);
+         DB::table('tipo_equipamento')->insert([
+        'nome' => 'Impressora'
         ]);
     }
 }
