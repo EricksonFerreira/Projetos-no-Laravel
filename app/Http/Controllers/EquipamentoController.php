@@ -6,6 +6,7 @@ use App\Equipamento;
 use App\Tipo_Equipamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class EquipamentoController extends Controller
 {
@@ -38,7 +39,7 @@ class EquipamentoController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $dados = $request->validate([
 
             'nome_equipamento' => 'required|unique:equipamentos|max:255',
@@ -54,7 +55,7 @@ class EquipamentoController extends Controller
 
         ]);
 
-        return redirect()->route('equipamento.create');
+        return redirect()->route('equipamento.create')->with('message', 'Sucesso ao cadastrar Equipamento');
     }
 
     /**

@@ -57,7 +57,7 @@ class ReservaController extends Controller
 
         ]);
 
-        return redirect()->route('reserva.create');
+        return redirect()->route('home');
     }
 
     /**

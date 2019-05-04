@@ -6,6 +6,12 @@
 <br>
 <div>
 	<div>
+		@if (session()->has('message'))
+			<div class="alert alert-success">
+		        {{ session()->get('message') }}
+		    </div>
+		@endif
+
 		@if ($errors->any())
 		    <div class="alert alert-danger">
 		        <ul>
@@ -13,14 +19,7 @@
 		                <li>{{ $error }}</li>
 		            @endforeach
 		        </ul>
-		    </div>
-
-		    @else
-				<div class="alert alert-success">
-			        <ul>
-			            <li>Sucesso ao reservar equipamento</li>
-			        </ul>
-		    	</div>		    	
+		    </div>	    	
 		@endif
 	</div>
 	<form action="{{route('reserva.store')}}" method="post" class="">
@@ -41,6 +40,7 @@
 		<a href=""><button class="btn btn-success"> Cadastrar </button></a>
 	</form>
 </div>
+		<a href="{{route('home')}}"><button class="btn btn-primary"> Voltar </button></a>
 
 <style type="text/css">
 	form {

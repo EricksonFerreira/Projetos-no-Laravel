@@ -30,7 +30,7 @@ class HomeController extends Controller
             ->join('tipo_equipamento', 'equipamentos.tipo_equipamento_id','=','tipo_equipamento.id')
             ->select('equipamentos.nome_equipamento', 'tipo_equipamento.nome', 'users.name', 'reserva.data_inicio','reserva.data_fim')
             ->get();
-
+            
         return view('home', compact('reservas'));
     }
 }

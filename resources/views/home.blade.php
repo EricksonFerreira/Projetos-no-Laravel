@@ -27,8 +27,8 @@
                         <td>{{$reserva -> nome_equipamento}}</td>
                         <td>{{$reserva -> nome}}</td>
                         <td>{{$reserva -> name}}</td>
-                        <td>{{$reserva -> data_inicio}}</td>
-                        <td>{{$reserva -> data_fim}}</td>
+                        <td>{{date('d-m-Y', strtotime($reserva -> data_inicio))}}</td>
+                        <td>{{date('d-m-Y', strtotime($reserva -> data_fim))}}</td>
     				</tr>
     			@endforeach
     		</tbody>

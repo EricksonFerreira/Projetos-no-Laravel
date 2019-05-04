@@ -13,14 +13,7 @@
 		                <li>{{ $error }}</li>
 		            @endforeach
 		        </ul>
-		    </div>
-
-		    @else
-				<div class="alert alert-success">
-			        <ul>
-			            <li>Sucesso ao cadastrar Equipamento</li>
-			        </ul>
-		    	</div>		    	
+		    </div>  	
 		@endif
 	</div>
 	<form action="{{route('equipamento.store')}}" method="post" class="">
