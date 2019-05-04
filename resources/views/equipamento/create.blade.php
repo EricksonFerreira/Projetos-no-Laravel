@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div>
+<div class="container">
 	<h3> Cadastrar Equipamento</h3>
 </div>
 <br>
@@ -16,6 +16,8 @@
 		    </div>  	
 		@endif
 	</div>
+	<div class="container">
+		
 	<form action="{{route('equipamento.store')}}" method="post" class="">
 		<div class="form-group">
 			@csrf
@@ -37,6 +39,7 @@
 		</div>
 	</form>
 	<a href="{{route('home')}}"><button class="btn btn-primary"> Voltar </button></a>
+	</div>
 </div>
 
 <style type="text/css">

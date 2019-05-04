@@ -38,6 +38,17 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
+        $reservas = Reserva::all();
+        foreach ($reservas as $reserva) {
+        $inicio =  $request->data_inicio;
+        $fim =  $request->data_fim;
+            if ($request->id_equipamento == $reserva->id_equipamento) {
+                if ($fim > $reserva->data_inicio && $reserva->data_inicio > $inicio or $fim > $reserva->data_fim && $reserva->data_fim > $inicio) {
+                    return redirect()->route('reserva.create');
+                }
+            }
+        }
+
         $dados = $request->validate([
 
             'data_inicio' => 'required|date|date_format:Y-m-d|after:yesterday',
