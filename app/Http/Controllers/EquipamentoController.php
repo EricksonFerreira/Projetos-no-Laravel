@@ -38,11 +38,17 @@ class EquipamentoController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = $request->all();
-        dd($dados);
-        Equipamento::create($dados);
-        return redirect()->route('equipamento.create');
+        $dados = $request -> all();
 
+        $table = DB::table('equipamentos')->insert([
+
+            'nome_equipamento' => $dados['nome_equipamento'],
+            'tombamento' => $dados['tombamento'],
+            'tipo_equipamento_id' => $dados['tipo_equipamento_id']
+
+        ]);
+
+        return redirect()->route('equipamento.create');
     }
 
     /**

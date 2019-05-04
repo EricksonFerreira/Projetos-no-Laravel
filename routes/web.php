@@ -17,15 +17,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('equipamento/create', ['as'=>'equipamento.create', 'uses'=>'EquipamentoController@create']);
-Route::post('equipamento/store', ['as'=>'equipamento.store', 'uses'=>'EquipamentoController@store']);
+Route::group(['middleware'=>'auth'],function() {
 
-Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('equipamento/create', ['as'=>'equipamento.create', 'uses'=>'EquipamentoController@create']);
+	Route::post('equipamento/store', ['as'=>'equipamento.store', 'uses'=>'EquipamentoController@store']);
 
-Route::resource('tipo-equipamentos', 'TipoEquipamentoController');
+	Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/tipo-equipamentos/create', ['as' => 'tipo-equipamentos.create', 'uses' => 'TipoEquipamentoController@create']);
+	Route::resource('tipo-equipamentos', 'TipoEquipamentoController');
 
-Route::post('/tipo-equipamentos/store', ['as' => 'tipo-equipamentos.store', 'uses' => 'TipoEquipamentoController@store']);
+	Route::get('/tipo-equipamentos/create', ['as' => 'tipo-equipamentos.create', 'uses' => 'TipoEquipamentoController@create']);
 
-Route::get('/123', 'TipoEquipamentoController@create')->name('123');
+	Route::post('/tipo-equipamentos/store', ['as' => 'tipo-equipamentos.store', 'uses' => 'TipoEquipamentoController@store']);
+
+	Route::get('/123', 'TipoEquipamentoController@create')->name('123');
+
+	Route::get('/reserva/create', ['as' => 'reserva.create', 'uses' => 'ReservaController@create']);
+
+	Route::post('/reserva/store', ['as' => 'reserva.store', 'uses' => 'ReservaController@store']);
+
+});

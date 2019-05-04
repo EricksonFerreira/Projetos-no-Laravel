@@ -9,11 +9,11 @@
 		<div class="form-group">
 			@csrf
 			<label> Nome </label>
-			<input type="" name="name" required="" class="form-control">
+			<input type="" name="nome_equipamento" required="" class="form-control">
 			<label> Tombamento </label>
 			<input type="" name="tombamento" required="" class="form-control">
 			<label> Tipo </label>
-			<select class="form-control">
+			<select class="form-control" name="tipo_equipamento_id">
 				<option value = "" disabled selected>Selecione o tipo</option>
 				
 				@foreach($tipos as $tipo)

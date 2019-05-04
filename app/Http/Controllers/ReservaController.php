@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Reserva;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Auth;
 
 class ReservaController extends Controller
 {
@@ -14,7 +16,7 @@ class ReservaController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -24,7 +26,8 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        //
+        $equipamentos = DB::table('equipamentos')->select('id','nome_equipamento')->get();
+        return view('reserva.equipamentos', compact('equipamentos'));
     }
 
     /**
@@ -35,7 +38,19 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request -> all();
+        $id_usuario = Auth::user()->id;
+
+        $reserva = DB::table('reserva')->insert([
+
+            'data_inicio' => $dados['data_inicio'],
+            'data_fim' => $dados['data_fim'],
+            'id_equipamento' => $dados['id_equipamento'],
+            'id_usuario' => $id_usuario
+
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**

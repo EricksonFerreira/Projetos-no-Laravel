@@ -15,11 +15,11 @@ class Equipamento extends Migration
     {
         Schema::create('equipamentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('nome_equipamento');
             $table->string('tombamento')->unique();
             $table->Integer('tipo_equipamento_id')->unsigned();
             $table->foreign('tipo_equipamento_id')->references('id')->on('tipo_equipamento')->onDelete('cascade');
-            $table->timestamp('name');
+            $table->timestamp('nome');
         });
     }
 
