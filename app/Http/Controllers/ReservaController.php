@@ -38,14 +38,34 @@ class ReservaController extends Controller
      */
     public function store(Request $request)
     {
+        
+
+         $inicio = $request->data_inicio; 
+        $fim = $request->data_fim;
+        $id= $request->id_equipamento;
+
+        $results = DB::table('reserva')->whereBetween('data_inicio', [$inicio, $fim])->count('data_inicio');
+         $results2 = DB::table('reserva')->whereBetween('data_fim', [$inicio, $fim])->count('data_fim');;
+          $result = $results;
+          $result1 = $results2;
+
+         //return  var_dump($results2);
+          
+           if ($results == '1') {
+                 $results = 'houve conflito na sua data de reserva veja as reserva e tente novamente';
+               return redirect()->route('reserva.create')->with('results',$results);  
+           }else if ($results2 == '1'){
+              $results2 = 'data de termino'.$results2;
+              return redirect()->route('reserva.create')->with('results',$results2);   
+           }else
+                    {
         $dados = $request->validate([
 
-            'data_inicio' => 'required|date|date_format:Y-m-d|after:yesterday',
-            'data_fim' => 'required|date|date_format:Y-m-d|after:data_inicio',
+            'data_inicio' => 'required|date|after:yesterday',
+            'data_fim' => 'required|date|after:data_inicio',
             'id_equipamento'=>'required',
         
         ]);
-
         $id_usuario = Auth::user()->id;
 
         $reserva = DB::table('reserva')->insert([
@@ -57,6 +77,7 @@ class ReservaController extends Controller
 
         ]);
 
+    }
         return redirect()->route('home');
     }
 

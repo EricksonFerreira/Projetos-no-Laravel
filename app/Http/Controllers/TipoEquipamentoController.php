@@ -27,13 +27,8 @@ class TipoEquipamentoController extends Controller
      */
     public function create()
     {
-
-        return view ('/tipoequip.adicionar'); 
-
-     }
-
         $tipo = Tipo_Equipamento::all();
-        return view ('equipamento', compact('tipo'));
+        return view('equipamento', compact('tipo'));
     }
 
 

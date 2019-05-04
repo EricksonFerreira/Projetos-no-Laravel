@@ -56,7 +56,7 @@
 }
 
 table{
-	margin-top:  25em;
+	margin-top:  18em;
 	width: 40em;
 	height: 40em;
 }

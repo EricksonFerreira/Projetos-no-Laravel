@@ -8,7 +8,7 @@ use Equipamento;
 class Tipo_Equipamento extends Model
 {
   
-  protected $table = "tipo_equipamentos";
+  protected $table = "tipo_equipamento";
 
 	protected $primaryKey = 'id';
 	
