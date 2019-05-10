@@ -12,7 +12,7 @@ class Tipo_Equipamento extends Model
 
 	protected $primaryKey = 'id';
 	
-	protected $fillable = ['name','id_equipamento'];
+	protected $fillable = ['nome','id_equipamento'];
 
 	public $timestamps = false;
 
