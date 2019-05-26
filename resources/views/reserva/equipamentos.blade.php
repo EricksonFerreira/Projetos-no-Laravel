@@ -31,10 +31,10 @@
 		<div class="form-group">
 			@csrf
 		<label> Data de Inicio</label>
-		<input id="party" class="form-control" type="datetime-local"  name="data_inicio" value="2019-05-10T08:30">
+		<input id="party" class="form-control" type="datetime-local"  name="data_inicio" value="2019-05-26T08:30">
 		<br>
 		<label> Data fim </label><br>
-		<input id="party" class="form-control" type="datetime-local" name="data_fim" class="form-control"  value="2019-05-10T08:30">
+		<input id="party" class="form-control" type="datetime-local" name="data_fim" class="form-control"  value="2019-05-26T08:30">
 		<br>
 		<label> Equipamentos Disponiveis</label>
 		<select class="form-control" name="id_equipamento">
@@ -50,7 +50,7 @@
 		<a href="{{route('home')}}"><button class="btn btn-primary"> Voltar </button></a>
 			@if (session('results'))
     <div class="alert alert-warning">
-    	verifique a data de inicio ou de termino da sua reserva porque pode estar em conflito com outra reserva.
+    	verifique a data de inicio ou de termino da sua reserva porque pode estar em conflito com outra reserva {{session('results')}}
  	      </div>
 		@endif
 
