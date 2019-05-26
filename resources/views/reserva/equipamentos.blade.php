@@ -27,7 +27,7 @@
 		@endif
 	</div>
 
-	<form action="{{route('reserva.store')}}" method="post" class="">
+	<form style="position: center;" action="{{route('reserva.store')}}" method="post" class="">
 		<div class="form-group">
 			@csrf
 		<label> Data de Inicio</label>

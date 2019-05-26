@@ -44,12 +44,12 @@ class ReservaController extends Controller
         $id= $request->id_equipamento;
 
 
-        $reservas = DB::table('reserva')->where('data_inicio','=<',$inicio)->orWhere('data_fim','>=',$fim)->value('data_inicio','data_fim');
+        $reservas = DB::table('reserva')->where('data_inicio','=<',$inicio)->orWhere('data_fim','>=',$fim)->value('data_inicio','data_fim');// Aqui faz um select  e pega todos os resultados maiores que a data de termino e de fim.
          
-         $results = DB::table('reserva')->whereBetween('data_inicio', [$inicio, $fim])->whereDate('data_inicio', $inicio)->count('data_inicio');
+         $results = DB::table('reserva')->whereBetween('data_inicio', [$inicio, $fim])->whereDate('data_inicio', $inicio)->count('data_inicio');//aki ele verifica se tem alguma data de inicio entre a data de inicio e fim 
 
         $results2 = DB::table('reserva')->whereBetween('data_fim', [$inicio, $fim])->count('data_fim');
-        $result = $results;
+        $result = $results;//aki ele faz a mesma coisa de cima só tem se é a data de fim que está entre.
           $result1 = $results2;
 
           
